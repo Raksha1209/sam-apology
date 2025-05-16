@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Friendship Revival Form 💕</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Comic+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+      body {
+        font-family: "Comic Neue", cursive;
+        background: linear-gradient(to right, #ffefff, #f7e8ff);
+        padding: 40px 20px;
+        color: #444;
+        margin: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #fffafc;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(255, 192, 203, 0.3);
+        border: 2px dashed #ffb6c1;
+      }
+      h1,
+      h2 {
+        font-family: "Cherry Bomb One", cursive;
+        text-align: center;
+        color: #ff69b4;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-top: 20px;
+        color: #d63384;
+      }
+      input[type="text"],
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px;
+        margin-top: 8px;
+        border-radius: 12px;
+        border: 1px solid #ffb6c1;
+        font-family: inherit;
+        background-color: #fff0f5;
+        color: #333;
+      }
+      textarea {
+        resize: vertical;
+        height: 100px;
+      }
+      input[type="checkbox"],
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+      .question {
+        margin: 15px 0;
+      }
+      input[type="submit"] {
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 30px;
+        font-size: 16px;
+        margin-top: 30px;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        font-family: "Comic Neue", cursive;
+      }
+      input[type="submit"]:hover {
+        background-color: #ff1493;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 20px 10px;
+        }
+        .container {
+          padding: 20px;
+        }
+      }
+      .hover-avoid {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      .hover-avoid:hover {
+        transform: translateX(100px) rotate(10deg);
+      }
+      .sound-btn {
+        background: #fff0f5;
+        border: 1px solid #ff69b4;
+        padding: 10px 20px;
+        border-radius: 15px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .extra-question {
+        margin-top: 40px;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #d63384;
+      }
+      .extra-options label {
+        display: block;
+        margin: 8px 0;
+        font-weight: normal;
+      }
+      audio::-webkit-media-controls-panel {
+        background-color: #fff0f5;
+      }
+      .audio-player {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="audio-player">
+      <audio id="bg-music" controls loop>
+        <source src="endo bareda.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="container">
+      <h1>💌 Friendship Revival Form 💖</h1>
+      <button class="sound-btn" onclick="playSound('yes'); playMusic();">
+        Please talk to me: <strong>Yes</strong>
+      </button>
+      <button class="sound-btn hover-avoid" onclick="playSound('no')">
+        No
+      </button>
+
+      <form
+        action="https://formspree.io/f/xrbqjqen"
+        method="POST"
+        onsubmit="fireConfetti();"
+      >
+        <h2>SECTION A: BASIC FORGIVENESS QUESTIONS</h2>
+        <label>1. Will you ever talk to me again?</label>
+        <label><input type="radio" name="talk-again" value="Yes" /> Yes</label>
+        <label><input type="radio" name="talk-again" value="No" /> No</label>
+        <label
+          ><input type="radio" name="talk-again" value="After 3 quests" /> After
+          you complete 3 friendship quests</label
+        >
+        <label
+          ><input type="radio" name="talk-again" value="Bored" /> Only if I’m
+          bored and you’re lucky</label
+        >
+
+        <label>2. Do you like me, even just a teeny-tiny bit?</label>
+        <label><input type="radio" name="like-me" value="Yes" /> Yes</label>
+        <label
+          ><input type="radio" name="like-me" value="More than I should" /> More
+          than I should</label
+        >
+        <label
+          ><input type="radio" name="like-me" value="Unfortunately yes" /> Ugh,
+          unfortunately, yes</label
+        >
+        <label
+          ><input type="radio" name="like-me" value="Tolerate" /> I tolerate
+          your existence</label
+        >
+
+        <label
+          >3. Do I still hold a special place in your heart (or in your blocked
+          contacts)?</label
+        >
+        <label><input type="radio" name="place" value="Heart" /> Heart</label>
+        <label
+          ><input type="radio" name="place" value="Blocked" /> Blocked
+          list</label
+        >
+        <label
+          ><input type="radio" name="place" value="Meh" /> Somewhere between
+          “meh” and “fine”</label
+        >
+        <label
+          ><input type="radio" name="place" value="Depends" /> Depends on your
+          next 3 texts</label
+        >
+
+        <label>4. Can our friendship be restored if I:</label>
+        <label
+          ><input type="checkbox" name="restore[]" value="Food" /> Buy you
+          Biryani</label
+        >
+        <label
+          ><input type="checkbox" name="restore[]" value="TV show" /> 10 Lemon
+          tea tickets</label
+        >
+        <label
+          ><input type="checkbox" name="restore[]" value="Puppy Sorry" /> Say
+          sorry 87 times</label
+        >
+        <label
+          ><input type="checkbox" name="restore[]" value="Stop spilling" /> Fuck
+          off</label
+        >
+        <label
+          ><input type="checkbox" name="restore[]" value="Sky apology" /> Write
+          a public apology</label
+        >
+
+        <h2>SECTION B: PETTY BUT NECESSARY</h2>
+        <label>5. Rate the damage caused me:</label>
+        <label
+          ><input type="radio" name="damage" value="1" /> 1 – Tiny splash,
+          napkin fixed it</label
+        >
+        <label
+          ><input type="radio" name="damage" value="5" /> 5 – Sizzling burn, but
+          treatable</label
+        >
+        <label
+          ><input type="radio" name="damage" value="8" /> 8 – Emotional
+          tsunami</label
+        >
+        <label
+          ><input type="radio" name="damage" value="10" /> 10 – Full-scale
+          friendship earthquake</label
+        >
+
+        <label>6. What emotional compensation do you require?</label>
+        <label
+          ><input type="checkbox" name="compensation[]" value="Compliments" />
+          Drink Tonight, wt say!?</label
+        >
+        <label
+          ><input type="checkbox" name="compensation[]" value="Playlist" /> A
+          song with my voice</label
+        >
+        <label
+          ><input type="checkbox" name="compensation[]" value="Memes" /> Daily
+          hugs and kisses</label
+        >
+        <label
+          ><input type="checkbox" name="compensation[]" value="Guilt" /> My
+          eternal guilt and service</label
+        >
+        <label
+          ><input type="checkbox" name="compensation[]" value="All" /> All of
+          the above</label
+        >
+
+        <h2>SECTION C: CUTE, CHEESY & CRINGE</h2>
+        <label>7. Do you miss me?</label>
+        <label><input type="radio" name="miss" value="Yes" /> Yes</label>
+        <label><input type="radio" name="miss" value="No" /> No</label>
+        <label><input type="radio" name="miss" value="Maybe" /> Maybe</label>
+        <label
+          ><input type="radio" name="miss" value="Don’t push it" /> Don’t push
+          it, Shakespeare</label
+        >
+
+        <label
+          >8. If our friendship were a movie genre, what would it be?</label
+        >
+        <label><input type="radio" name="movie" value="Comedy" /> Comedy</label>
+        <label><input type="radio" name="movie" value="Drama" /> Drama</label>
+        <label
+          ><input type="radio" name="movie" value="Soap Opera" /> Soap opera
+          with extra tears</label
+        >
+        <label
+          ><input type="radio" name="movie" value="Action" /> Action – we’re
+          chaotic</label
+        >
+        <label
+          ><input type="radio" name="movie" value="Rom-Com" /> Romantic-comedy
+          (no pressure 😳)</label
+        >
+
+        <label
+          >9. If you could rename me based on this incident, what would you
+          choose?</label
+        >
+        <label
+          ><input type="radio" name="rename" value="Gossip Guru" />
+          Bevarsi</label
+        >
+        <label
+          ><input type="radio" name="rename" value="Loose Lips" />
+          Bolimaglu</label
+        >
+        <label
+          ><input type="radio" name="rename" value="Chai Tsunami" />
+          Halka</label
+        >
+        <label
+          ><input type="radio" name="rename" value="Secret Leaker" />
+          Gandu</label
+        >
+        <label
+          ><input type="radio" name="rename" value="No Spill" /> The One Who
+          Shall Not Spill</label
+        >
+
+        <label
+          >10. Should I stop trying and just build a shrine in your name
+          instead?</label
+        >
+        <label
+          ><input type="radio" name="shrine" value="Keep groveling" /> No, keep
+          groveling</label
+        >
+        <label
+          ><input type="radio" name="shrine" value="Tempting" /> Tempting, but
+          no</label
+        >
+        <label
+          ><input type="radio" name="shrine" value="Sticker" /> Start small –
+          maybe a sticker</label
+        >
+        <label
+          ><input type="radio" name="shrine" value="Candle" /> Yes. Pray and
+          light a candle</label
+        >
+
+        <label>11. Your final decision:</label>
+        <label
+          ><input type="radio" name="final" value="Forgive" /> I forgive you.
+          Now hug me.</label
+        >
+        <label
+          ><input type="radio" name="final" value="Thin ice" /> You’re on thin
+          ice, tea monster.</label
+        >
+        <label
+          ><input type="radio" name="final" value="Snacks" /> I’ll consider it…
+          after emotional snacks.</label
+        >
+        <label
+          ><input type="radio" name="final" value="Suffer" /> Nope. You must
+          suffer more (but in a cute way).</label
+        >
+
+        <label>Signature (of the wounded but beautiful soul):</label>
+        <input type="text" name="signature" />
+
+        <label>Emoji that best represents your current feelings:</label>
+        <input type="text" name="emoji" />
+
+        <label>One nice thing about me you secretly still believe:</label>
+        <textarea name="secret-nice"></textarea>
+
+        <label>🌹 Can we go on a date if you have no plans? Please?</label>
+        <label><input type="radio" name="date" value="Okay" /> Okay 🥺</label>
+        <label><input type="radio" name="date" value="Hmm" /> Hmm… Maybe</label>
+        <label
+          ><input type="radio" name="date" value="No" /> No, but nicely</label
+        >
+
+        <input type="submit" value="Submit My Royal Verdict 💫" />
+      </form>
+    </div>
+
+    <audio id="sound-yes">
+      <source src="happy.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="sound-no">
+      <source src="sad-violin.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="sound-submit">
+      <source src="yay.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      function playSound(type) {
+        document.getElementById(`sound-${type}`).play();
+      }
+      function playMusic() {
+        const music = document.getElementById("bg-music");
+        music.play();
+      }
+      function fireConfetti() {
+        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        playSound("submit");
+      }
+    </script>
+  </body>
+</html>
